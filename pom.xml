@@ -21,6 +21,8 @@
 
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <sl4j.version>1.7.21</sl4j.version>
         <logback.version>1.1.8</logback.version>
         <logback.core.version>1.1.8</logback.core.version>
@@ -38,6 +40,18 @@
         <commons.collections>3.2.1</commons.collections>
         <commons.lang.version>3.4</commons.lang.version>
         <mapstruct.version>1.0.0.Final</mapstruct.version>
+
+        <hibernate.version>4.3.5.Final</hibernate.version>
+        <hibernate.annotation.version>3.5.6-Final</hibernate.annotation.version>
+        <hibernate-spatial.version>4.3</hibernate-spatial.version>
+        <hibernate.search.version>4.5.1.Final</hibernate.search.version>
+
+        <geotools.version>14-M1</geotools.version>
+        <postgis.version>1.5.2</postgis.version>
+        <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
+        <jts.version>1.13</jts.version>
+
+        <joda-time.version>2.7</joda-time.version>
 
         <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-Parent.git</scm.connection>
     </properties>
@@ -125,14 +139,14 @@
             <version>${commons.collections}</version>
         </dependency>
         <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>${mapstruct.version}</version>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
         </dependency>
     </dependencies>
 
