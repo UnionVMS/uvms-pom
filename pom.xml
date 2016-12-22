@@ -50,6 +50,8 @@
         <postgis.version>1.5.2</postgis.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <jts.version>1.13</jts.version>
+        <jaxb2.basics.version>0.9.5</jaxb2.basics.version>
+        <dozer.version>5.5.1</dozer.version>
 
         <joda-time.version>2.7</joda-time.version>
 
