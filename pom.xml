@@ -55,7 +55,7 @@
 
         <joda-time.version>2.7</joda-time.version>
 
-        <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-Parent.git</scm.connection>
+        <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.connection>
     </properties>
 
     <repositories>
