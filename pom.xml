@@ -16,7 +16,7 @@
 
     <groupId>eu.europa.ec.fisheries.uvms</groupId>
     <artifactId>uvms-app-parent</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
 
@@ -85,7 +85,7 @@
 
     <scm>
         <connection>${scm.connection}</connection>
-        <tag>uvms-app-parent-1.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencies>
