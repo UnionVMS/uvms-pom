@@ -3,4 +3,5 @@ branches:
   only:
   - master
   - dev
-  
+after_success:
+  -  test $TRAVIS_PULL_REQUEST == "false" && mvn deploy --settings travis-settings.xml -DskipTests=true -B
