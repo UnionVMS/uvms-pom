@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <server>
+      <id>focus-releases</id>
+      <username>${env.NEXUS_USER_ID}</username>
+      <password>${env.NEXUS_PWD}</password>
+    </server>
+    <server>
+      <id>focus-snapshots</id>
+      <username>${env.NEXUS_USER_ID}</username>
+      <password>${env.NEXUS_PWD}</password>
+    </server>
+    <server>
+      <id>thirdparty</id>
+      <username>${env.NEXUS_USER_ID}</username>
+      <password>${env.NEXUS_PWD}</password>
+    </server>
+  </servers>   
+
+  <mirrors>
+    <mirror>
+      <!--This sends everything else to /public -->
+      <id>nexus</id>
+      <mirrorOf>*,!thirdparty</mirrorOf>
+      <url>https://nexus.focus.fish/nexus/repository/public/</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+    <profile>
+      <id>focus</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>thirdparty</id>
+          <name>FOCUS 3rd party</name>
+          <url>https://nexus.focus.fish/nexus/repository/thirdparty/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+</settings>
