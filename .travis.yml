@@ -3,5 +3,24 @@ branches:
   only:
   - master
   - dev
+
+cache:
+  directories:
+  - "$HOME/.m2"
+  - "$HOME/.sonar/cache"
+  
+addons:
+  sonarqube:
+    organization: "uvms-github"
+    branches:
+      - master
+      - dev
+
+jdk:
+ - openjdk7
+ 
 after_success:
-  -  test $TRAVIS_PULL_REQUEST == "false" && mvn deploy --settings travis-settings.xml -DskipTests=true -B
+  - test $TRAVIS_PULL_REQUEST == "false" && mvn deploy --settings travis-settings.xml -DskipTests=true -B
+  - jdk_switcher use oraclejdk8
+  - test $TRAVIS_PULL_REQUEST == "true" && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.analysis.mode=preview
+  - test $TRAVIS_PULL_REQUEST == "false" && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN
