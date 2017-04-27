@@ -57,11 +57,14 @@
     <focus.fish.public.base.site.url>http://nexus.focus.fish/sitereports/</focus.fish.public.base.site.url>
     <focus.fish.distribution.site.id></focus.fish.distribution.site.id>
     <focus.fish.distribution.site.url></focus.fish.distribution.site.url>
+    <focus.fish.encoding.properties>ISO-8859-1</focus.fish.encoding.properties>
+    <focus.fish.encoding.xml>UTF-8</focus.fish.encoding.xml>
     
     <!-- ================ -->
     <!-- Maven Properties -->
     <!-- ================ -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>    
     <project.scm.id>github</project.scm.id>
     <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.connection>
     <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -404,7 +407,7 @@
             <artifactId>maven-enforcer-plugin</artifactId>
             <executions>
               <execution>
-                <id>enforce-encoding</id>
+                <id>enforce-java-encoding</id>
                 <goals>
                   <goal>enforce</goal>
                 </goals>
@@ -412,11 +415,39 @@
                   <rules>
                     <requireEncoding>
                       <encoding>${project.build.sourceEncoding}</encoding>
-                      <includes>src/main/resources/**,src/main/java/**,src/test/resources/**,src/test/java/**</includes>
+                      <includes>src/main/java/**,src/test/java/**</includes>
                     </requireEncoding>
                   </rules>
                 </configuration>
               </execution>
+              <execution>
+                <id>enforce-property-encoding</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireEncoding>
+                      <encoding>${focus.fish.encoding.properties}</encoding>
+                      <includes>src/main/resources/**/*.properties,src/test/resources/**/*.properties</includes>
+                    </requireEncoding>
+                  </rules>
+                </configuration>
+              </execution>
+              <execution>
+                <id>enforce-xml-encoding</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireEncoding>
+                      <encoding>${focus.fish.encoding.xml}</encoding>
+                      <includes>src/main/resources/**/*.xml,src/main/resources/**/*.xsd,src/main/resources/**/*.wsdl,src/test/resources/**/*.xml</includes>
+                    </requireEncoding>
+                  </rules>
+                </configuration>
+              </execution>              
             </executions>
           </plugin>
         </plugins>
