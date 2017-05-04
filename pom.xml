@@ -17,7 +17,8 @@
   <artifactId>uvms-app-parent</artifactId>
   <version>2.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <url>${focus.fish.public.base.site.url}/${project.artifactId}/</url>
+  <url>${focus.fish.public.base.site.url}/${focus.fish.public.context.site.url}/</url>
+  <name>uvms-app-parent</name>
   <scm>
     <connection>${scm.connection}</connection>
     <tag>HEAD</tag>
@@ -44,6 +45,13 @@
     <!-- ========================= -->
     <java.version>1.7</java.version>
     <maven.version>3.2.0</maven.version>
+    <github.global.server>github</github.global.server>
+
+    <!-- ================ -->    
+    <!-- Project settings -->
+    <!-- =================-->    
+    <focus.fish.public.base.site.url>https://unionvms.github.io</focus.fish.public.base.site.url>
+    <focus.fish.public.context.site.url>UVMS-Parent-APP</focus.fish.public.context.site.url>
     
     <!-- ================================== -->
     <!-- Focus fish distribution Properties -->
@@ -67,6 +75,8 @@
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>    
     <project.scm.id>github</project.scm.id>
     <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.connection>
+    <scm.url>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.url>
+    
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     
@@ -75,6 +85,7 @@
     <!-- ================================ -->
     <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
     <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
+    <maven.release.plugin.scm.provider.git.version>1.9.5</maven.release.plugin.scm.provider.git.version>
     <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
     <maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
     <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
@@ -85,8 +96,15 @@
     <maven.ejb.plugin.version>2.5.1</maven.ejb.plugin.version>
     <maven.ear.plugin.version>2.10.1</maven.ear.plugin.version>
     <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
+    <maven.jxr.plugin.version>2.5</maven.jxr.plugin.version>
+    <maven.site.github.plugin.version>0.12</maven.site.github.plugin.version>
+    <maven.site.github.egit.plugin.version>3.4.2.201412180340-r</maven.site.github.egit.plugin.version>
+    <maven.projectinfo.plugin.version>2.9</maven.projectinfo.plugin.version>
+    <maven.tattletale.plugin.version>1.2.0.Beta2</maven.tattletale.plugin.version>
+    <maven.tattletale.javassist.plugin.version>3.22.0-CR1</maven.tattletale.javassist.plugin.version>    
     <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
     <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
+    <maven.versions.plugin.version>2.3</maven.versions.plugin.version>
     <maven.site.plugin.version>3.6</maven.site.plugin.version>
     <maven.project.info.reports.plugin.version>2.9</maven.project.info.reports.plugin.version>
     <maven.dependency.plugin.version>3.0.0</maven.dependency.plugin.version>
@@ -96,6 +114,10 @@
     <maven.scm.provider.version>2.1.1</maven.scm.provider.version>
     <maven.jgitflow.plugin.version>1.0-m5.1</maven.jgitflow.plugin.version>
     <maven.gitflow.helper.plugin.version>1.7.1</maven.gitflow.helper.plugin.version>    
+    <maven.jacoco.plugin.version>0.7.9</maven.jacoco.plugin.version>
+    <maven.jacoco.plugin.arquillian.version>1.0.0.Alpha9</maven.jacoco.plugin.arquillian.version>
+    <maven.jacoco.plugin.asm.version>5.2</maven.jacoco.plugin.asm.version>
+    
     
     <!-- =================================================== -->
     <!-- Common project dependency manage version properties -->
@@ -278,11 +300,30 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${maven.release.plugin.version}</version>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-provider-gitexe</artifactId>
+				<version>${maven.release.plugin.scm.provider.git.version}</version>
+			</dependency>
+		</dependencies>          
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>${maven.site.plugin.version}3.6</version>
+          <version>${maven.site.plugin.version}</version>
+        </plugin>
+        <plugin>
+        	 <groupId>com.github.github</groupId>
+    		 <artifactId>site-maven-plugin</artifactId>
+    		 <version>${maven.site.github.plugin.version}</version>
+    		 <dependencies>
+				<dependency>
+				    <groupId>org.eclipse.mylyn.github</groupId>
+				    <artifactId>org.eclipse.egit.github.core</artifactId>
+				    <version>${maven.site.github.egit.plugin.version}</version>
+				</dependency>    		 
+    		 </dependencies>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -320,6 +361,18 @@
           <groupId>com.e-gineering</groupId>
           <artifactId>gitflow-helper-maven-plugin</artifactId>
           <version>${maven.gitflow.helper.plugin.version}</version>
+        </plugin>
+         <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${maven.jacoco.plugin.version}</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.ow2.asm</groupId>
+              <artifactId>asm-debug-all</artifactId>
+              <version>${maven.jacoco.plugin.asm.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -394,12 +447,6 @@
     </profile>
     <profile>
       <id>enforce-encoding</id>
-      <activation>
-        <!-- To disable profile, define property -Dfocus.fish.enforce.encoding.disabled=true -->
-        <property>
-          <name>!focus.fish.enforce.encoding.disabled</name>
-        </property>
-      </activation>
       <build>
         <plugins>
           <plugin>
@@ -453,6 +500,61 @@
         </plugins>
       </build>
     </profile>
+	<profile>
+		<id>jacoco</id>
+		<dependencies>
+		      <dependency>
+		         <groupId>org.jacoco</groupId>
+		         <artifactId>org.jacoco.core</artifactId>
+		         <version>${maven.jacoco.plugin.version}</version>
+		         <scope>test</scope>
+		      </dependency>
+		      <dependency>
+		         <groupId>org.jboss.arquillian.extension</groupId>
+		         <artifactId>arquillian-jacoco</artifactId>
+		         <version>${maven.jacoco.plugin.arquillian.version}</version>
+		         <scope>test</scope>
+		      </dependency>
+		</dependencies>		
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>pre-unit-test</id>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+							<configuration>
+								<append>true</append>
+								<propertyName>surefireArgLine</propertyName>
+							</configuration>
+						</execution>
+						<execution>
+							<id>post-unit-test</id>
+							<phase>test</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<inherited>true</inherited>
+					<configuration>
+						<argLine>@{surefireArgLine}</argLine>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
     <profile>
       <id>release-sign-artifacts-required-by-maven-central</id>
       <build>
@@ -503,6 +605,130 @@
           </plugin>
         </plugins>
       </build>
-    </profile>
+	  </profile>
+		<profile>
+			<id>site-reports</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-site-plugin</artifactId>
+						<version>${maven.site.plugin.version}</version>
+						<inherited>true</inherited>
+						<configuration>
+							<inputEncoding>UTF-8</inputEncoding>
+							<generateSitemap>true</generateSitemap>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>com.github.github</groupId>
+						<artifactId>site-maven-plugin</artifactId>
+						<version>${maven.site.github.plugin.version}</version>
+						<inherited>true</inherited>
+						<executions>
+							<execution>
+								<goals>
+									<goal>site</goal>
+								</goals>
+								<phase>site</phase>
+								<configuration>
+									<message>Creating site for ${project.version}</message>
+								</configuration>
+							</execution>
+						</executions>
+				   </plugin>					
+				   <plugin>
+						<groupId>org.jboss.tattletale</groupId>
+						<artifactId>tattletale-maven</artifactId>
+						<version>${maven.tattletale.plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>site</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.javassist</groupId>
+								<artifactId>javassist</artifactId>
+								<version>${maven.tattletale.javassist.plugin.version}</version>
+							</dependency>
+						</dependencies>
+						<inherited>true</inherited>
+						<configuration>
+							<source>${project.build.directory}/${project.artifactId}</source>
+							<destination>${project.build.directory}/site/tattleTaleReport</destination>
+							<profiles>
+								<report>*</report>
+							</profiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<reporting>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-project-info-reports-plugin</artifactId>
+						<version>${maven.projectinfo.plugin.version}</version>
+						<inherited>true</inherited>
+						<configuration>
+							<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${maven.surefire.plugin.version}</version>
+						<inherited>true</inherited>
+					</plugin>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${maven.jacoco.plugin.version}</version>
+						<inherited>true</inherited>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-report-plugin</artifactId>
+						<version>${maven.surefire.plugin.version}</version>
+						<reportSets>
+							<reportSet>
+								<reports>
+									<report>report-only</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+						<inherited>true</inherited>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jxr-plugin</artifactId>
+						<version>${maven.jxr.plugin.version}</version>
+						<inherited>true</inherited>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>versions-maven-plugin</artifactId>
+						<version>${maven.versions.plugin.version}</version>
+						<reportSets>
+							<reportSet>
+								<reports>
+									<report>dependency-updates-report</report>
+									<report>plugin-updates-report</report>
+									<report>property-updates-report</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+						<inherited>true</inherited>
+						<configuration>
+							<allowSnapshots>true</allowSnapshots>
+						</configuration>
+					</plugin>
+				</plugins>
+			</reporting>
+		</profile>
   </profiles>
 </project>
