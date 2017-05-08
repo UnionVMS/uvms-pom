@@ -26,6 +26,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
 	<modules>
 		<module>uvms-pom</module>
 		<module>uvms-pom-logging-deps</module>
-		<module>uvms-pom-test-deps</module>		
+		<module>uvms-pom-test-deps</module>
+		<module>uvms-pom-gis-deps</module>				
 	</modules>      
 </project>
