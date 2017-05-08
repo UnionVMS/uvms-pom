@@ -13,13 +13,11 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
 />. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--TODO parent>
+    <parent>
         <groupId>fish.focus.maven</groupId>
-        <artifactId>focus-pom</artifactId>
-        <version>1.0.0</version>
-        <packaging>pom</packaging>
-        <relativePath/>
-    </parent-->
+	    <artifactId>focus-pom</artifactId>
+	    <version>1.0</version>
+    </parent>
     
     <groupId>fish.focus.uvms.maven</groupId>
     <artifactId>uvms-pom</artifactId>
@@ -34,58 +32,13 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
         <connection>${scm.connection}</connection>
         <tag>HEAD</tag>
     </scm>
-
-    <!-- ================= -->
-	<!-- Shared settings, should not be redefined in project's POMs -->
-	<!-- ================= -->
-	<licenses>
-		<license>
-			<name>GNU General Public License (GPLv3)</name>
-			<url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
-		</license>
-	</licenses>
-
-	<!-- ### END Shared setting -->
-
-    <distributionManagement>
-        <repository>
-            <id>${focus-pom.distribution.release.id}</id>
-            <name>${focus-pom.distribution.release.name}</name>
-            <url>${focus-pom.distribution.release.url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>${focus-pom.distribution.snapshot.id}</id>
-            <name>${focus-pom.distribution.snapshot.name}</name>
-            <url>${focus-pom.distribution.snapshot.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <!-- ================================================================ -->
+	<!-- End Project specific settings                                    -->
+	<!-- ================================================================ -->
     
+
     <properties>
-        
-        <!-- ================================== -->
-        <!-- Focus Properities (should be in focus pom (corporate)) -->
-        <!-- ================================== -->
-        <!--Site-->
-        <focus-pom.public.base.site.url>https://unionvms.github.io</focus-pom.public.base.site.url>
-        <focus-pom.public.context.site.url>${project.artifactId}</focus-pom.public.context.site.url>
-    
-        <!--Distribution-->
-        <focus-pom.distribution.release.id>focus-releases</focus-pom.distribution.release.id>
-        <focus-pom.distribution.release.name>UnionVms Repository</focus-pom.distribution.release.name>
-        <focus-pom.distribution.release.url>http://nexus.focus.fish/nexus/content/repositories/releases/</focus-pom.distribution.release.url>
-        <focus-pom.distribution.snapshot.id>focus-snapshots</focus-pom.distribution.snapshot.id>
-        <focus-pom.distribution.snapshot.name>UnionVms Snapshot Repository</focus-pom.distribution.snapshot.name>
-        <focus-pom.distribution.snapshot.url>http://nexus.focus.fish/nexus/content/repositories/snapshots</focus-pom.distribution.snapshot.url>
-        <focus-pom.distribution.stage.id>focus-stages</focus-pom.distribution.stage.id>
-        <focus-pom.distribution.stage.name>UnionVms Stage Repository</focus-pom.distribution.stage.name>
-        <focus-pom.distribution.stage.url>http://nexus.focus.fish/nexus/repository/stages</focus-pom.distribution.stage.url>
-    
-        <!--Encoding-->
-        <focus-pom.encoding.properties>ISO-8859-1</focus-pom.encoding.properties>
-        <focus-pom.encoding.xml>UTF-8</focus-pom.encoding.xml>
-        <!--Other-->
-        <focus-pom.sonarUrl>https://sonarqube.com</focus-pom.sonarUrl>
-        
+                
         <!-- ================= -->
         <!-- Global Properties -->
         <!-- ================= -->
