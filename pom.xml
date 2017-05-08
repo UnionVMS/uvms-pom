@@ -83,7 +83,8 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
         <!--Encoding-->
         <focus-pom.encoding.properties>ISO-8859-1</focus-pom.encoding.properties>
         <focus-pom.encoding.xml>UTF-8</focus-pom.encoding.xml>
-
+        <!--Other-->
+        <focus-pom.sonarUrl>https://sonarqube.com</focus-pom.sonarUrl>
         
         <!-- ================= -->
         <!-- Global Properties -->
@@ -135,7 +136,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
         <installAtEnd>true</installAtEnd>
 
         <!-- Sonar settings (m-sonar-p) -->
-        <sonar.host.url>${uvms-pom.sonarUrl}</sonar.host.url>
+        <sonar.host.url>${focus-pom.sonarUrl}</sonar.host.url>
         <sonar.language>java</sonar.language>
         <sonar.sourceEncoding>${project.build.sourceEncoding}</sonar.sourceEncoding>
         <sonar.java.target>${maven.compiler.target}</sonar.java.target>
