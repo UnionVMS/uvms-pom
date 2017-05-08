@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ Developed with the contribution of the European Commission - Directorate 
+General for Maritime Affairs and Fisheries ~ © European Union, 2015-2016. 
+~ ~ This file is part of the Integrated Fisheries Data Management (IFDM) 
+Suite. The IFDM Suite is free software: you can ~ redistribute it and/or 
+modify it under the terms of the GNU General Public License as published 
+by the ~ Free Software Foundation, either version 3 of the License, or any 
+later version. The IFDM Suite is distributed in ~ the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+or ~ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+for more details. You should have received a ~ copy of the GNU General Public 
+License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses 
+/>. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--TODO parent>
+        <groupId>fish.focus.maven</groupId>
+        <artifactId>focus-pom</artifactId>
+        <version>1.0.0</version>
+        <packaging>pom</packaging>
+        <relativePath/>
+    </parent-->
+    
+    <groupId>fish.focus.uvms.maven</groupId>
+    <artifactId>uvms-pom</artifactId>
+    <version>2.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+      
+    <!-- ================================================================ -->
+	<!-- Project specific settings, should be redefined in project's POMs -->
+	<!-- ================================================================ -->
+	<url>${focus-pom.public.base.site.url}/${project.artifactId}</url>
+    <scm>
+        <connection>${scm.connection}</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!-- ================= -->
+	<!-- Shared settings, should not be redefined in project's POMs -->
+	<!-- ================= -->
+	<licenses>
+		<license>
+			<name>GNU General Public License (GPLv3)</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+		</license>
+	</licenses>
+
+	<!-- ### END Shared setting -->
+
+    <distributionManagement>
+        <repository>
+            <id>${focus-pom.distribution.release.id}</id>
+            <name>${focus-pom.distribution.release.name}</name>
+            <url>${focus-pom.distribution.release.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${focus-pom.distribution.snapshot.id}</id>
+            <name>${focus-pom.distribution.snapshot.name}</name>
+            <url>${focus-pom.distribution.snapshot.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+    <properties>
+        
+        <!-- ================================== -->
+        <!-- Focus Properities (should be in focus pom (corporate)) -->
+        <!-- ================================== -->
+        <!--Site-->
+        <focus-pom.public.base.site.url>https://unionvms.github.io</focus-pom.public.base.site.url>
+        <focus-pom.public.context.site.url>${project.artifactId}</focus-pom.public.context.site.url>
+    
+        <!--Distribution-->
+        <focus-pom.distribution.release.id>focus-releases</focus-pom.distribution.release.id>
+        <focus-pom.distribution.release.name>UnionVms Repository</focus-pom.distribution.release.name>
+        <focus-pom.distribution.release.url>http://nexus.focus.fish/nexus/content/repositories/releases/</focus-pom.distribution.release.url>
+        <focus-pom.distribution.snapshot.id>focus-snapshots</focus-pom.distribution.snapshot.id>
+        <focus-pom.distribution.snapshot.name>UnionVms Snapshot Repository</focus-pom.distribution.snapshot.name>
+        <focus-pom.distribution.snapshot.url>http://nexus.focus.fish/nexus/content/repositories/snapshots</focus-pom.distribution.snapshot.url>
+        <focus-pom.distribution.stage.id>focus-stages</focus-pom.distribution.stage.id>
+        <focus-pom.distribution.stage.name>UnionVms Stage Repository</focus-pom.distribution.stage.name>
+        <focus-pom.distribution.stage.url>http://nexus.focus.fish/nexus/repository/stages</focus-pom.distribution.stage.url>
+    
+        <!--Encoding-->
+        <focus-pom.encoding.properties>ISO-8859-1</focus-pom.encoding.properties>
+        <focus-pom.encoding.xml>UTF-8</focus-pom.encoding.xml>
+        <!--Other-->
+        <focus-pom.sonarUrl>https://sonarqube.com</focus-pom.sonarUrl>
+        
+        <!-- ================= -->
+        <!-- Global Properties -->
+        <!-- ================= -->
+        <java.version>1.7</java.version>
+        
+        <!-- Maven default properties -->
+        <project.scm.id>github</project.scm.id>
+        <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.connection>
+        <scm.url>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.url>
+        
+        <!-- Set default encoding to UTF-8 (most plugins) -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
+
+        <!-- Set compiler source and target versions (m-compiler-p) -->
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>${maven.compiler.target}</maven.compiler.source>
+
+        <!-- Set compiler tveo be more verbose (m-compiler-p) -->
+        <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+        <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+
+        <!-- Disable report aggregation (m-jxr-p, m-pmd-p, m-surefire-report-p) -->
+        <aggregate>false</aggregate>
+
+        <!-- Disable report when there is no tests (m-surefire-p) -->
+        <alwaysGenerateSurefireReport>false</alwaysGenerateSurefireReport>
+
+        <!-- Shut off non-error and non-warning messages, making them easier to view (m-javadoc-p) -->
+        <quiet>true</quiet>
+
+        <!-- Disable links detection between modules, it is too slow (m-javadoc-p) -->
+        <detectOfflineLinks>false</detectOfflineLinks>
+
+        <!-- Set target JDK to analyze based on (m-pmd-p) -->
+        <targetJdk>${maven.compiler.target}</targetJdk>
+
+        <!-- Speed-up site generation (m-project-info-reports-p) -->
+        <dependency.locations.enabled>false</dependency.locations.enabled>
+
+        <!-- A comma separated list of locales (m-site-p) -->
+        <locales>en</locales>
+
+        <!-- Exclude build-number.txt file created by Jenkins in the project directory (m-release-p) -->
+        <checkModificationExcludeList>build-number.txt</checkModificationExcludeList>
+		
+        <!-- For multimodule build, if the build fails, none of the reactor projects is deployed (m-install-p, m-deploy-p) -->
+        <installAtEnd>true</installAtEnd>
+
+        <!-- Sonar settings (m-sonar-p) -->
+        <sonar.host.url>${focus-pom.sonarUrl}</sonar.host.url>
+        <sonar.language>java</sonar.language>
+        <sonar.sourceEncoding>${project.build.sourceEncoding}</sonar.sourceEncoding>
+        <sonar.java.target>${maven.compiler.target}</sonar.java.target>
+        <sonar.java.source>${maven.compiler.source}</sonar.java.source>
+        
+        <!-- =================================================== -->
+        <!-- Common project dependency manage version properties -->
+        <!-- =================================================== -->
+        <uvms-pom.loggingDeps.version>2.1.0-SNAPSHOT</uvms-pom.loggingDeps.version>
+        <uvms-pom.testDeps.version>2.1.0-SNAPSHOT</uvms-pom.testDeps.version>
+
+        <uvms-pom.java.version>${maven.compiler.target}</uvms-pom.java.version>
+        <uvms-pom.maven.version>3.2.0</uvms-pom.maven.version>
+        
+        <uvms-pom.logback.core.version>1.1.8</uvms-pom.logback.core.version>
+        <uvms-pom.javaee.version>7.0</uvms-pom.javaee.version>
+        <uvms-pom.swagger.version>1.3.1</uvms-pom.swagger.version>
+        <uvms-pom.commons.collections>3.2.1</uvms-pom.commons.collections>
+        <uvms-pom.commons.lang.version>3.4</uvms-pom.commons.lang.version>
+        <uvms-pom.mapstruct.version>1.0.0.Final</uvms-pom.mapstruct.version>
+        <uvms-pom.hibernate.version>4.3.5.Final</uvms-pom.hibernate.version>
+        <uvms-pom.hibernate.annotation.version>3.5.6-Final</uvms-pom.hibernate.annotation.version>
+        <uvms-pom.hibernate-spatial.version>4.3</uvms-pom.hibernate-spatial.version>
+        <uvms-pom.hibernate.search.version>4.5.1.Final</uvms-pom.hibernate.search.version>
+        <uvms-pom.geotools.version>14-M1</uvms-pom.geotools.version>
+        <uvms-pom.postgis.version>1.5.2</uvms-pom.postgis.version>
+        <uvms-pom.postgresql.version>9.1-901-1.jdbc4</uvms-pom.postgresql.version>
+        <uvms-pom.jts.version>1.13</uvms-pom.jts.version>
+        <uvms-pom.jaxb2.basics.version>0.9.5</uvms-pom.jaxb2.basics.version>
+        <uvms-pom.dozer.version>5.5.1</uvms-pom.dozer.version>
+        <uvms-pom.joda-time.version>2.7</uvms-pom.joda-time.version>
+    
+    
+        <!-- ================================ -->
+        <!-- Maven plugin versions properties -->
+        <!-- ================================ -->
+        <uvms-pom.maven.source.plugin.version>3.0.1</uvms-pom.maven.source.plugin.version>
+        <uvms-pom.maven.release.plugin.version>2.5.3</uvms-pom.maven.release.plugin.version>
+        <uvms-pom.maven.release.plugin.scm.provider.git.version>1.9.5</uvms-pom.maven.release.plugin.scm.provider.git.version>
+        <uvms-pom.maven.compiler.plugin.version>3.6.1</uvms-pom.maven.compiler.plugin.version>
+        <uvms-pom.maven.clean.plugin.version>3.0.0</uvms-pom.maven.clean.plugin.version>
+        <uvms-pom.maven.resources.plugin.version>3.0.2</uvms-pom.maven.resources.plugin.version>
+        <uvms-pom.maven.javadoc.plugin.version>2.10.4</uvms-pom.maven.javadoc.plugin.version>
+        <uvms-pom.maven.surefire.plugin.version>2.20</uvms-pom.maven.surefire.plugin.version>
+        <uvms-pom.maven.jar.plugin.version>3.0.2</uvms-pom.maven.jar.plugin.version>
+        <uvms-pom.maven.war.plugin.version>3.0.0</uvms-pom.maven.war.plugin.version>
+        <uvms-pom.maven.ejb.plugin.version>2.5.1</uvms-pom.maven.ejb.plugin.version>
+        <uvms-pom.maven.ear.plugin.version>2.10.1</uvms-pom.maven.ear.plugin.version>
+        <uvms-pom.maven.gpg.plugin.version>1.6</uvms-pom.maven.gpg.plugin.version>
+        <uvms-pom.maven.jxr.plugin.version>2.5</uvms-pom.maven.jxr.plugin.version>
+        <uvms-pom.maven.site.github.plugin.version>0.12</uvms-pom.maven.site.github.plugin.version>
+        <uvms-pom.maven.site.github.egit.plugin.version>3.4.2.201412180340-r</uvms-pom.maven.site.github.egit.plugin.version>
+        <uvms-pom.maven.projectinfo.plugin.version>2.9</uvms-pom.maven.projectinfo.plugin.version>
+        <uvms-pom.maven.tattletale.plugin.version>1.2.0.Beta2</uvms-pom.maven.tattletale.plugin.version>
+        <uvms-pom.maven.tattletale.javassist.plugin.version>3.22.0-CR1</uvms-pom.maven.tattletale.javassist.plugin.version>    
+        <uvms-pom.maven.deploy.plugin.version>2.8.2</uvms-pom.maven.deploy.plugin.version>
+        <uvms-pom.maven.install.plugin.version>2.5.2</uvms-pom.maven.install.plugin.version>
+        <uvms-pom.maven.versions.plugin.version>2.3</uvms-pom.maven.versions.plugin.version>
+        <uvms-pom.maven.site.plugin.version>3.6</uvms-pom.maven.site.plugin.version>
+        <uvms-pom.maven.project.info.reports.plugin.version>2.9</uvms-pom.maven.project.info.reports.plugin.version>
+        <uvms-pom.maven.dependency.plugin.version>3.0.0</uvms-pom.maven.dependency.plugin.version>
+        <uvms-pom.maven.versions.plugin.version>2.3</uvms-pom.maven.versions.plugin.version>
+        <uvms-pom.maven.enforcer.plugin.version>1.4.1</uvms-pom.maven.enforcer.plugin.version>
+        <uvms-pom.maven.enforcer.plugin.extra.rules.version>1.0-beta-6</uvms-pom.maven.enforcer.plugin.extra.rules.version>
+        <uvms-pom.maven.scm.provider.version>2.1.1</uvms-pom.maven.scm.provider.version>
+        <uvms-pom.maven.jgitflow.plugin.version>1.0-m5.1</uvms-pom.maven.jgitflow.plugin.version>
+        <uvms-pom.maven.gitflow.helper.plugin.version>1.7.1</uvms-pom.maven.gitflow.helper.plugin.version>    
+        <uvms-pom.maven.jacoco.plugin.version>0.7.9</uvms-pom.maven.jacoco.plugin.version>
+        <uvms-pom.maven.jacoco.plugin.arquillian.version>1.0.0.Alpha9</uvms-pom.maven.jacoco.plugin.arquillian.version>
+        <uvms-pom.maven.jacoco.plugin.asm.version>5.2</uvms-pom.maven.jacoco.plugin.asm.version>
+    
+        <!-- =================================================== -->
+        <!-- IDE specific properties                             -->
+        <!-- =================================================== -->
+        <netbeans.hint.jdkPlatform>JDK_${uvms-pom.java.version}</netbeans.hint.jdkPlatform>
+    </properties>
+     
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>fish.focus.uvms.maven</groupId>
+                <artifactId>uvms-pom-logging-deps</artifactId>
+                <version>${uvms-pom.loggingDeps.version}</version>
+                <type>pom</type>
+            </dependency>
+   
+            <dependency>
+                <groupId>fish.focus.uvms.maven</groupId>
+                <artifactId>uvms-pom-test-deps</artifactId>
+                <version>${uvms-pom.testDeps.version}</version>
+                <type>pom</type>
+                <scope>test</scope>
+            </dependency>
+            
+            <!--OTHER-->
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${uvms-pom.javaee.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${uvms-pom.commons.collections}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${uvms-pom.commons.lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${uvms-pom.joda-time.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <dependencies>
+        <!-- Include default logging dependencies -->
+        <dependency>
+            <groupId>fish.focus.uvms.maven</groupId>
+            <artifactId>uvms-pom-logging-deps</artifactId>
+            <type>pom</type>
+        </dependency>
+        <!-- Include default test dependencies (scope aplies to all deps in the dependecy..)-->
+        <dependency>
+            <groupId>fish.focus.uvms.maven</groupId>
+            <artifactId>uvms-pom-test-deps</artifactId>
+            <version>2.1.0-SNAPSHOT</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+   
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Maven core plugins order based on http://maven.apache.org/plugins/index.html-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${uvms-pom.maven.clean.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${uvms-pom.maven.resources.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${uvms-pom.maven.source.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${uvms-pom.maven.compiler.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${uvms-pom.maven.javadoc.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>${uvms-pom.maven.surefire.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${uvms-pom.maven.surefire.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${uvms-pom.maven.surefire.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${uvms-pom.maven.jar.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${uvms-pom.maven.war.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>${uvms-pom.maven.ejb.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>${uvms-pom.maven.ear.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${uvms-pom.maven.gpg.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${uvms-pom.maven.install.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${uvms-pom.maven.deploy.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${uvms-pom.maven.release.plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-provider-gitexe</artifactId>
+                            <version>${uvms-pom.maven.release.plugin.scm.provider.git.version}</version>
+                        </dependency>
+                    </dependencies>          
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${uvms-pom.maven.site.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${uvms-pom.maven.project.info.reports.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${uvms-pom.maven.dependency.plugin.version}</version>
+                </plugin>
+    
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${uvms-pom.maven.enforcer.plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>extra-enforcer-rules</artifactId>
+                            <version>${uvms-pom.maven.enforcer.plugin.extra.rules.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>  
+                <!--/END MAVEN CORE PLUGINS-->
+                
+                <!-- ============= -->
+                <!-- Other plugins -->
+                <!-- ============= -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${uvms-pom.maven.versions.plugin.version}</version>
+                </plugin>
+                <!--Git plugins-->
+                <plugin>
+                    <groupId>com.github.github</groupId>
+                    <artifactId>site-maven-plugin</artifactId>
+                    <version>${uvms-pom.maven.site.github.plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.eclipse.mylyn.github</groupId>
+                            <artifactId>org.eclipse.egit.github.core</artifactId>
+                            <version>${uvms-pom.maven.site.github.egit.plugin.version}</version>
+                        </dependency>    		 
+                    </dependencies>
+                </plugin>      
+                <plugin>
+                    <groupId>external.atlassian.jgitflow</groupId>
+                    <artifactId>jgitflow-maven-plugin</artifactId>
+                    <version>${uvms-pom.maven.jgitflow.plugin.version}</version>
+                </plugin>
+                <!-- https://github.com/egineering-llc/gitflow-helper-maven-plugin -->
+                <plugin>
+                    <groupId>com.e-gineering</groupId>
+                    <artifactId>gitflow-helper-maven-plugin</artifactId>
+                    <version>${uvms-pom.maven.gitflow.helper.plugin.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <releaseDeploymentRepository>${focus-pom.distribution.release.id}</releaseDeploymentRepository>
+                        <snapshotDeploymentRepository>${focus-pom.distribution.snapshot.id}</snapshotDeploymentRepository>
+                        <!--id::layout::url::unique-->
+                        <stageDeploymentRepository>${focus-pom.distribution.stage.id}:default:${focus-pom.distribution.stage.url}:false</stageDeploymentRepository>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>enforce-versions</goal>
+                                <goal>retarget-deploy</goal>
+                                <goal>update-stage-dependencies</goal>
+                                <goal>set-properties</goal>
+                                <goal>tag-master</goal>
+                                <goal>promote-master</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    
+    <profiles>
+        <profile>
+            <id>enforce-jdk-version</id>
+            <activation>
+                <!-- To disable profile, define property -Dfocus-pom.enforce.jdk.version.disabled=true -->
+                <property>
+                    <name>!focus-pom.enforce.jdk.version.disabled</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>enforce-jdk-version</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireJavaVersion>
+                                            <version>[${uvms-pom.java.version},${uvms-pom.java.version}.999)</version>
+                                        </requireJavaVersion>
+                                        <enforceBytecodeVersion>
+                                            <maxJdkVersion>${uvms-pom.java.version}</maxJdkVersion>
+                                        </enforceBytecodeVersion>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>enforce-maven-version</id>
+            <activation>
+                <!-- To disable profile, define property -Dfocus-pom.enforce.maven.version.disabled=true -->
+                <property>
+                    <name>!focus-pom.enforce.maven.version.disabled</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>enforce-maven-versions</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireMavenVersion>
+                                            <version>${uvms-pom.maven.version}</version>
+                                        </requireMavenVersion>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>enforce-encoding</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>enforce-java-encoding</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireEncoding>
+                                            <encoding>${project.build.sourceEncoding}</encoding>
+                                            <includes>src/main/java/**,src/test/java/**</includes>
+                                        </requireEncoding>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>enforce-property-encoding</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireEncoding>
+                                            <encoding>${focus-pom.encoding.properties}</encoding>
+                                            <includes>src/main/resources/**/*.properties,src/test/resources/**/*.properties</includes>
+                                        </requireEncoding>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>enforce-xml-encoding</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireEncoding>
+                                            <encoding>${focus-pom.encoding.xml}</encoding>
+                                            <includes>src/main/resources/**/*.xml,src/main/resources/**/*.xsd,src/main/resources/**/*.wsdl,src/test/resources/**/*.xml</includes>
+                                        </requireEncoding>
+                                    </rules>
+                                </configuration>
+                            </execution>              
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jacoco</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>org.jacoco.core</artifactId>
+                    <version>${uvms-pom.maven.jacoco.plugin.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.arquillian.extension</groupId>
+                    <artifactId>arquillian-jacoco</artifactId>
+                    <version>${uvms-pom.maven.jacoco.plugin.arquillian.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>		
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>pre-unit-test</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                                <configuration>
+                                    <append>true</append>
+                                    <propertyName>surefireArgLine</propertyName>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>post-unit-test</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <argLine>@{surefireArgLine}</argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release-sign-artifacts-required-by-maven-central</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${uvms-pom.maven.javadoc.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <inherited>true</inherited>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${uvms-pom.maven.source.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>bundle-sources</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                    <goal>test-jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${uvms-pom.maven.source.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <inherited>true</inherited>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>site-reports</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-site-plugin</artifactId>
+                        <version>${uvms-pom.maven.site.plugin.version}</version>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <inputEncoding>UTF-8</inputEncoding>
+                            <generateSitemap>true</generateSitemap>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <version>${uvms-pom.maven.site.github.plugin.version}</version>
+                        <inherited>true</inherited>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>site</phase>
+                                <configuration>
+                                    <message>Creating site for ${project.version}</message>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>					
+                    <plugin>
+                        <groupId>org.jboss.tattletale</groupId>
+                        <artifactId>tattletale-maven</artifactId>
+                        <version>${uvms-pom.maven.tattletale.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>site</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.javassist</groupId>
+                                <artifactId>javassist</artifactId>
+                                <version>${uvms-pom.maven.tattletale.javassist.plugin.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <source>${project.build.directory}/${project.artifactId}</source>
+                            <destination>${project.build.directory}/site/tattleTaleReport</destination>
+                            <profiles>
+                                <report>*</report>
+                            </profiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-project-info-reports-plugin</artifactId>
+                        <version>${uvms-pom.maven.projectinfo.plugin.version}</version>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${uvms-pom.maven.surefire.plugin.version}</version>
+                        <inherited>true</inherited>
+                    </plugin>
+           
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-report-plugin</artifactId>
+                        <version>${uvms-pom.maven.surefire.plugin.version}</version>
+                        <reportSets>
+                            <reportSet>
+                                <reports>
+                                    <report>report-only</report>
+                                </reports>
+                            </reportSet>
+                        </reportSets>
+                        <inherited>true</inherited>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jxr-plugin</artifactId>
+                        <version>${uvms-pom.maven.jxr.plugin.version}</version>
+                        <inherited>true</inherited>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>${uvms-pom.maven.versions.plugin.version}</version>
+                        <reportSets>
+                            <reportSet>
+                                <reports>
+                                    <report>dependency-updates-report</report>
+                                    <report>plugin-updates-report</report>
+                                    <report>property-updates-report</report>
+                                </reports>
+                            </reportSet>
+                        </reportSets>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <allowSnapshots>true</allowSnapshots>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+        <!-- Corporate POM specific settings (disabled by default) -->
+        <profile>
+            <id>corporate-pom</id>
+            <properties>
+                <!-- Skip properties update for some plugins (m-versions-p) -->
+                <excludeProperties>uvms-pom.sonarVersion</excludeProperties>
+            </properties>
+
+            <!-- Override site deployment location, deploy the corporate pom site under separate directory (not under top level directory) -->
+            <distributionManagement>
+                <site>
+                    <id>${uvms-pom.siteRepositoryId}</id>
+                    <url>${uvms-pom.siteRepositoryUrl}/${project.artifactId}</url>
+                </site>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+</project>
