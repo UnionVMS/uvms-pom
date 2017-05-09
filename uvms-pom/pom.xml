@@ -46,8 +46,8 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
         
         <!-- Maven default properties -->
         <project.scm.id>github</project.scm.id>
-        <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.connection>
-        <scm.url>scm:git:https://github.com/UnionVMS/UVMS-Parent-APP.git</scm.url>
+        <scm.connection>scm:git:https://github.com/UnionVMS/uvms-pom.git</scm.connection>
+        <scm.url>scm:git:https://github.com/UnionVMS/uvms-pom.git</scm.url>
         
         <!-- Set default encoding to UTF-8 (most plugins) -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
