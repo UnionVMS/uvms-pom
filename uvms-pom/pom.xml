@@ -535,20 +535,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
         </profile>
         <profile>
             <id>jacoco</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>org.jacoco.core</artifactId>
-                    <version>${uvms-pom.maven.jacoco.plugin.version}</version>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.arquillian.extension</groupId>
-                    <artifactId>arquillian-jacoco</artifactId>
-                    <version>${uvms-pom.maven.jacoco.plugin.arquillian.version}</version>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>		
             <build>
                 <plugins>
                     <plugin>
