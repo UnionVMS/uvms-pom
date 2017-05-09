@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>fish.focus.uvms.maven</groupId>
 	<artifactId>uvms-pom-test-deps</artifactId>
-	<version>2.1.0</version>
+	<version>2.1.1-SNAPSHOT</version>
 	<description>Test dependencies for UVMS pom </description>
 	<packaging>pom</packaging>
 
@@ -58,10 +58,6 @@
 			<version>${uvms-pom.test.deps.contiperf}</version>
 		</dependency>
 	</dependencies>
-
-  <scm>
-    <tag>uvms-aggregate-2.1.0</tag>
-  </scm>
 </project>
 
 
