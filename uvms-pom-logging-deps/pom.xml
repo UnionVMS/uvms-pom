@@ -14,32 +14,32 @@
     <packaging>pom</packaging>
 
     <properties>
-        <slf4j.version>1.7.25</slf4j.version>
-        <logback.version>1.2.3</logback.version>
-        <logback.core.version>1.2.3</logback.core.version>
+        <uvms-pom.logging.deps.slf4j.version>1.7.25</uvms-pom.logging.deps.slf4j.version>
+        <uvms-pom.logging.deps.logback.version>1.2.3</uvms-pom.logging.deps.logback.version>
+        <uvms-pom.logging.deps.logback.core.version>1.2.3</uvms-pom.logging.deps.logback.core.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
+            <version>${uvms-pom.logging.deps.slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
-            <version>${slf4j.version}</version>
+            <version>${uvms-pom.logging.deps.slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
+            <version>${uvms-pom.logging.deps.slf4j.version}</version>
         </dependency>
         
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
+            <version>${uvms-pom.logging.deps.logback.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>org.slf4j</artifactId>
@@ -50,17 +50,13 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>${logback.core.version}</version>
+            <version>${uvms-pom.logging.deps.logback.core.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>org.slf4j</artifactId>
                     <groupId>slf4j-api</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        
+        </dependency>        
     </dependencies>
-
 </project>
-
-

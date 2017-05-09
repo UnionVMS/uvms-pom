@@ -15,23 +15,23 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<hibernate.version>4.3.11.Final</hibernate.version>
-		<hibernate.spatial.version>4.3</hibernate.spatial.version>
-		<postgresql.version>42.1.1.jre7</postgresql.version>
-		<postgis.version>1.5.3</postgis.version>
-		<jts.version>1.13</jts.version>
-		<dozer.version>5.5.1</dozer.version>
-		<commonslang.version>2.6</commonslang.version>
-		<commonslang3.version>3.5</commonslang3.version>
-		<commons.collections.version>3.2.2</commons.collections.version>
-		<commons.beanutils.version>1.9.3</commons.beanutils.version>
+		<uvms-pom.gis.deps.hibernate.version>4.3.11.Final</uvms-pom.gis.deps.hibernate.version>
+		<uvms-pom.gis.deps.hibernate.spatial.version>4.3</uvms-pom.gis.deps.hibernate.spatial.version>
+		<uvms-pom.gis.deps.postgresql.version>42.1.1.jre7</uvms-pom.gis.deps.postgresql.version>
+		<uvms-pom.gis.deps.postgis.version>1.5.3</uvms-pom.gis.deps.postgis.version>
+		<uvms-pom.gis.deps.jts.version>1.13</uvms-pom.gis.deps.jts.version>
+		<uvms-pom.gis.deps.dozer.version>5.5.1</uvms-pom.gis.deps.dozer.version>
+		<uvms-pom.gis.deps.commonslang.version>2.6</uvms-pom.gis.deps.commonslang.version>
+		<uvms-pom.gis.deps.commonslang3.version>3.5</uvms-pom.gis.deps.commonslang3.version>
+		<uvms-pom.gis.deps.commons.collections.version>3.2.2</uvms-pom.gis.deps.commons.collections.version>
+		<uvms-pom.gis.deps.commons.beanutils.version>1.9.3</uvms-pom.gis.deps.commons.beanutils.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-spatial</artifactId>
-			<version>${hibernate.spatial.version}</version>
+			<version>${uvms-pom.gis.deps.hibernate.spatial.version}</version>
 			<scope>provided</scope>
 			<exclusions>
 				<exclusion>
@@ -55,47 +55,47 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
+			<version>${uvms-pom.gis.deps.hibernate.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
+			<version>${uvms-pom.gis.deps.hibernate.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
-			<version>${hibernate.version}</version>
+			<version>${uvms-pom.gis.deps.hibernate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-testing</artifactId>
-			<version>${hibernate.version}</version>
+			<version>${uvms-pom.gis.deps.hibernate.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.postgis</groupId>
 			<artifactId>postgis-jdbc</artifactId>
-			<version>${postgis.version}</version>
+			<version>${uvms-pom.gis.deps.postgis.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>${postgresql.version}</version>
+			<version>${uvms-pom.gis.deps.postgresql.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vividsolutions</groupId>
 			<artifactId>jts</artifactId>
-			<version>${jts.version}</version>
+			<version>${uvms-pom.gis.deps.jts.version}</version>
 		</dependency>
 		<dependency>
             <groupId>net.sf.dozer</groupId>
             <artifactId>dozer</artifactId>
-            <version>${dozer.version}</version>
+            <version>${uvms-pom.gis.deps.dozer.version}</version>
             <exclusions>
             	<exclusion>
             		<groupId>commons-beanutils</groupId>
@@ -110,7 +110,7 @@
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
-			<version>${commons.beanutils.version}</version>
+			<version>${uvms-pom.gis.deps.commons.beanutils.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -125,17 +125,17 @@
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
-			<version>${commons.collections.version}</version>
+			<version>${uvms-pom.gis.deps.commons.collections.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<version>${commonslang.version}</version>
+			<version>${uvms-pom.gis.deps.commonslang.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>${commonslang3.version}</version>
+			<version>${uvms-pom.gis.deps.commonslang3.version}</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -15,23 +15,28 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<version.org.jboss.arquillian>1.1.12.Final</version.org.jboss.arquillian>
-		<version.arquillian.suite.extension>1.1.2</version.arquillian.suite.extension>
-		<version.arquillian_jacoco>1.0.0.Alpha9</version.arquillian_jacoco>
-		<version.org.wildfly>8.2.0.Final</version.org.wildfly>
+		<uvms-pom.arquillian.deps.arquillian>1.1.13.Final</uvms-pom.arquillian.deps.arquillian>
+		<uvms-pom.arquillian.deps.arquillian.suite.extension>1.1.4</uvms-pom.arquillian.deps.arquillian.suite.extension>
+		<uvms-pom.arquillian.deps.arquillian_jacoco>1.0.0.Alpha9</uvms-pom.arquillian.deps.arquillian_jacoco>
+		<uvms-pom.arquillian.deps.jacoco>0.7.9</uvms-pom.arquillian.deps.jacoco>
+		<uvms-pom.arquillian.deps.org.wildfly>8.2.0.Final</uvms-pom.arquillian.deps.org.wildfly>
+		<uvms-pom.arquillian.deps.shrinkwrap>2.2.6</uvms-pom.arquillian.deps.shrinkwrap>
+		<uvms-pom.arquillian.deps.shrinkwrap.api>1.2.6</uvms-pom.arquillian.deps.shrinkwrap.api>
+		<uvms-pom.arquillian.deps.javassist>3.22.0-CR1</uvms-pom.arquillian.deps.javassist>
+		<uvms-pom.arquillian.deps.guava>20.0</uvms-pom.arquillian.deps.guava>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.jboss.arquillian</groupId>
 				<artifactId>arquillian-bom</artifactId>
-				<version>${version.org.jboss.arquillian}</version>
+				<version>${uvms-pom.arquillian.deps.arquillian}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>org.jboss.shrinkwrap.resolver</groupId>
 				<artifactId>shrinkwrap-resolver-bom</artifactId>
-				<version>2.2.4</version>
+				<version>${uvms-pom.arquillian.deps.shrinkwrap}</version>
 				<type>pom</type>
 			</dependency>
 		</dependencies>
@@ -50,45 +55,45 @@
 		<dependency>
 			<groupId>org.jboss.shrinkwrap</groupId>
 			<artifactId>shrinkwrap-api</artifactId>
-			<version>1.2.6</version>
+			<version>${uvms-pom.arquillian.deps.shrinkwrap.api}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.shrinkwrap.resolver</groupId>
 			<artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-			<version>2.2.4</version>
+			<version>${uvms-pom.arquillian.deps.shrinkwrap}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>
 			<artifactId>arquillian-junit-container</artifactId>
-			<version>${version.org.jboss.arquillian}</version>
+			<version>${uvms-pom.arquillian.deps.arquillian}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.arquillian.container</groupId>
 			<artifactId>arquillian-container-spi</artifactId>
-			<version>${version.org.jboss.arquillian}</version>
+			<version>${uvms-pom.arquillian.deps.arquillian}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.arquillian.container</groupId>
 			<artifactId>arquillian-container-test-spi</artifactId>
-			<version>${version.org.jboss.arquillian}</version>
+			<version>${uvms-pom.arquillian.deps.arquillian}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
-			<version>3.22.0-CR1</version>
+			<version>${uvms-pom.arquillian.deps.javassist}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.arquillian.core</groupId>
 			<artifactId>arquillian-core-api</artifactId>
-			<version>${version.org.jboss.arquillian}</version>
+			<version>${uvms-pom.arquillian.deps.arquillian}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.wildfly</groupId>
 			<artifactId>wildfly-arquillian-container-remote</artifactId>
-			<version>${version.org.wildfly}</version>
+			<version>${uvms-pom.arquillian.deps.org.wildfly}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>javax.inject</groupId>
@@ -99,7 +104,7 @@
 		<dependency>
 			<groupId>org.jboss.arquillian.extension</groupId>
 			<artifactId>arquillian-jacoco</artifactId>
-			<version>${version.arquillian_jacoco}</version>
+			<version>${uvms-pom.arquillian.deps.arquillian_jacoco}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.jboss.shrinkwrap</groupId>
@@ -122,17 +127,17 @@
 		<dependency>
 			<groupId>org.jacoco</groupId>
 			<artifactId>org.jacoco.core</artifactId>
-			<version>0.7.9</version>
+			<version>${uvms-pom.arquillian.deps.jacoco}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>
 			<artifactId>arquillian-junit-container</artifactId>
-			<version>${version.org.jboss.arquillian}</version>
+			<version>${uvms-pom.arquillian.deps.arquillian}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eu.ingwar.tools</groupId>
 			<artifactId>arquillian-suite-extension</artifactId>
-			<version>${version.arquillian.suite.extension}</version>
+			<version>${uvms-pom.arquillian.deps.arquillian.suite.extension}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>javax.inject</groupId>
@@ -159,7 +164,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>19.0</version>
+			<version>${uvms-pom.arquillian.deps.guava}</version>
 		</dependency>
 	</dependencies>
 </project>
