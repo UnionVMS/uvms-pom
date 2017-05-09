@@ -36,13 +36,11 @@
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-module-junit4</artifactId>
 			<version>${uvms-pom.test.deps.powermock.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-mockito</artifactId>
 			<version>${uvms-pom.test.deps.powermock.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.tocea.easycoverage</groupId>
