@@ -18,6 +18,7 @@
 		<uvms-pom.test.deps.mockito.version>1.10.19</uvms-pom.test.deps.mockito.version>
 		<uvms-pom.test.deps.easycoverage>2.3.1</uvms-pom.test.deps.easycoverage>
 		<uvms-pom.test.deps.contiperf>2.3.4</uvms-pom.test.deps.contiperf>
+		<uvms-pom.test.deps.powermock.version>1.6.2</uvms-pom.test.deps.powermock.version>		
 	</properties>
 	<dependencies>
 		<!-- Test -->
@@ -30,6 +31,18 @@
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>${uvms-pom.test.deps.mockito.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${uvms-pom.test.deps.powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${uvms-pom.test.deps.powermock.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.tocea.easycoverage</groupId>
