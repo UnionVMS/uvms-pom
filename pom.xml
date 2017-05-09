@@ -27,6 +27,10 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
 	    <scm.connection>scm:git:https://github.com/UnionVMS/uvms-pom.git</scm.connection>
 	    <scm.url>scm:git:https://github.com/UnionVMS/uvms-pom.git</scm.url>
 	</properties>
+    <scm>
+        <connection>${scm.connection}</connection>
+        <tag>HEAD</tag>
+    </scm>
 
 	<modules>
 		<module>uvms-pom</module>
