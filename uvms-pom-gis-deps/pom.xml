@@ -17,14 +17,14 @@
 	<properties>
 		<hibernate.version>4.3.11.Final</hibernate.version>
 		<hibernate.spatial.version>4.3</hibernate.spatial.version>
-		<postgresql.version>9.4.1212.jre7</postgresql.version>
-		<postgis.version>1.5.2</postgis.version>
+		<postgresql.version>42.1.1.jre7</postgresql.version>
+		<postgis.version>1.5.3</postgis.version>
 		<jts.version>1.13</jts.version>
 		<dozer.version>5.5.1</dozer.version>
 		<commonslang.version>2.6</commonslang.version>
 		<commonslang3.version>3.5</commonslang3.version>
 		<commons.collections.version>3.2.2</commons.collections.version>
-		<commons.beanutils.version>1.9.1</commons.beanutils.version>
+		<commons.beanutils.version>1.9.3</commons.beanutils.version>
 	</properties>
 
 	<dependencies>
@@ -82,7 +82,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>postgresql</groupId>
+			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${postgresql.version}</version>
 			<scope>provided</scope>

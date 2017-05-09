@@ -109,7 +109,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
         <uvms-pom.swagger.version>1.3.1</uvms-pom.swagger.version>
         <uvms-pom.commons.collections>3.2.1</uvms-pom.commons.collections>
         <uvms-pom.commons.lang.version>2.6</uvms-pom.commons.lang.version>
-        <uvms-pom.commons.lang3.version>3.4</uvms-pom.commons.lang3.version>
+        <uvms-pom.commons.lang3.version>3.5</uvms-pom.commons.lang3.version>
         
         <uvms-pom.mapstruct.version>1.0.0.Final</uvms-pom.mapstruct.version>
         <uvms-pom.hibernate.version>4.3.5.Final</uvms-pom.hibernate.version>
@@ -122,7 +122,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
         <uvms-pom.jts.version>1.13</uvms-pom.jts.version>
         <uvms-pom.jaxb2.basics.version>0.9.5</uvms-pom.jaxb2.basics.version>
         <uvms-pom.dozer.version>5.5.1</uvms-pom.dozer.version>
-        <uvms-pom.joda-time.version>2.7</uvms-pom.joda-time.version>
+        <uvms-pom.joda-time.version>2.9.9</uvms-pom.joda-time.version>
     
     
         <!-- ================================ -->
@@ -554,6 +554,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${uvms-pom.maven.jacoco.plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>pre-unit-test</id>
