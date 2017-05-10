@@ -5,6 +5,7 @@
 		<groupId>fish.focus.maven</groupId>
 		<artifactId>focus-pom</artifactId>
 		<version>1.1</version>
+		<relativePath/>
 	</parent>
 
 	<groupId>fish.focus.uvms.maven</groupId>
@@ -128,11 +129,7 @@
 			<artifactId>org.jacoco.core</artifactId>
 			<version>${uvms-pom.arquillian.deps.jacoco}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.jboss.arquillian.junit</groupId>
-			<artifactId>arquillian-junit-container</artifactId>
-			<version>${uvms-pom.arquillian.deps.arquillian}</version>
-		</dependency>
+	
 		<dependency>
 			<groupId>org.eu.ingwar.tools</groupId>
 			<artifactId>arquillian-suite-extension</artifactId>
