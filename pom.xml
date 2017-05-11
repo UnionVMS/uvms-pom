@@ -15,7 +15,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
 	<parent>
 		<groupId>fish.focus.uvms.maven</groupId>
     	<artifactId>uvms-pom</artifactId>
-    	<version>2.1.1</version>
+    	<version>2.1.2-SNAPSHOT</version>
     	<relativePath>uvms-pom/pom.xml</relativePath>		
 	</parent>
     
@@ -28,7 +28,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
 	</properties>
     <scm>
         <connection>${scm.connection}</connection>
-        <tag>uvms-pom-aggregate-2.1.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
 	<modules>
