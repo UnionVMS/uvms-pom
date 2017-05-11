@@ -176,5 +176,19 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+        	<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<executions>
+					<execution>
+						<inherited>false</inherited>
+						<id>attach-descriptor</id>
+						<goals>
+							<goal>attach-descriptor</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>        
+        </plugins>
     </build>
 </project>
