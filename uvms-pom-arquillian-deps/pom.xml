@@ -10,7 +10,7 @@
 
 	<groupId>fish.focus.uvms.maven</groupId>
 	<artifactId>uvms-pom-arquillian-deps</artifactId>
-	<version>2.1.3</version>
+	<version>2.1.4-SNAPSHOT</version>
 	<description>arquillian test dependencies for UVMS pom </description>
 	<packaging>pom</packaging>
 
@@ -160,8 +160,4 @@
 			<version>${uvms-pom.arquillian.deps.guava}</version>
 		</dependency>
 	</dependencies>
-
-  <scm>
-    <tag>uvms-pom-aggregate-2.1.3</tag>
-  </scm>
 </project>
