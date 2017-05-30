@@ -166,7 +166,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                         <releaseDeploymentRepository>${focus-pom.distribution.release.id}</releaseDeploymentRepository>
                         <snapshotDeploymentRepository>${focus-pom.distribution.snapshot.id}</snapshotDeploymentRepository>
                         <!--id::layout::url::unique-->
-                        <stageDeploymentRepository>${focus-pom.distribution.stage.id}:default:${focus-pom.distribution.stage.url}:false</stageDeploymentRepository>
+                        <stageDeploymentRepository>${focus-pom.distribution.stage.id}::default::${focus-pom.distribution.stage.url}::false</stageDeploymentRepository>
                     </configuration>
                     <executions>
                         <execution>
