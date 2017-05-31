@@ -25,6 +25,10 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
 		<project.scm.id>github</project.scm.id>
 		<scm.connection>scm:git:https://github.com/UnionVMS/uvms-pom.git</scm.connection>
 		<scm.url>scm:git:https://github.com/UnionVMS/uvms-pom.git</scm.url>
+		
+		<uvms-pom.maven.jgitflow.plugin.version>1.0-m5.1</uvms-pom.maven.jgitflow.plugin.version>
+		<uvms-pom.maven.gitflow.helper.plugin.version>1.7.1</uvms-pom.maven.gitflow.helper.plugin.version>   
+		
 	</properties>
 	<scm>
 		<connection>${scm.connection}</connection>
@@ -38,11 +42,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
 		<module>uvms-pom-gis-deps</module>
 		<module>uvms-pom-monitoring-deps</module>		
 		<module>uvms-pom-arquillian-deps</module>				
-	</modules>      
-	<properties>
-		<uvms-pom.maven.jgitflow.plugin.version>1.0-m5.1</uvms-pom.maven.jgitflow.plugin.version>
-		<uvms-pom.maven.gitflow.helper.plugin.version>1.7.1</uvms-pom.maven.gitflow.helper.plugin.version>    
-	</properties>
+	</modules>  
 	<build>
 		<pluginManagement> 
 			<!-- To be able to release through jgitflow/gitflow-helper-->
