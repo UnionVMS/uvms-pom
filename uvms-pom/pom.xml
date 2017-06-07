@@ -166,7 +166,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.20.1</version>
+                        <version>0.21.0</version>
                         <executions>
                             <execution>
                                 <id>verifyallstopped</id>
