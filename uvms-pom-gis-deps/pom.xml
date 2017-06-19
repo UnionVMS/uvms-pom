@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fish.focus.maven</groupId>
 		<artifactId>focus-pom</artifactId>
-		<version>1.6</version>
+		<version>1.5</version>
 		<relativePath />
 	</parent>
     
@@ -22,7 +22,7 @@
 		<uvms-pom.gis.deps.jts.version>1.13</uvms-pom.gis.deps.jts.version>
 		<uvms-pom.gis.deps.dozer.version>5.5.1</uvms-pom.gis.deps.dozer.version>
 		<uvms-pom.gis.deps.commonslang.version>2.6</uvms-pom.gis.deps.commonslang.version>
-		<uvms-pom.gis.deps.commonslang3.version>3.5</uvms-pom.gis.deps.commonslang3.version>
+		<uvms-pom.gis.deps.commonslang3.version>3.6</uvms-pom.gis.deps.commonslang3.version>
 		<uvms-pom.gis.deps.commons.collections.version>3.2.2</uvms-pom.gis.deps.commons.collections.version>
 		<uvms-pom.gis.deps.commons.beanutils.version>1.9.3</uvms-pom.gis.deps.commons.beanutils.version>
 	</properties>
@@ -68,6 +68,21 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>${uvms-pom.gis.deps.hibernate.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jboss.logging</groupId>
+					<artifactId>jboss-logging-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.jboss.logging</groupId>
+					<artifactId>jboss-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
+				</exclusion>				
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
