@@ -32,7 +32,6 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-spatial</artifactId>
 			<version>${uvms-pom.gis.deps.hibernate.spatial.version}</version>
-			<scope>provided</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>postgresql</groupId>
@@ -56,19 +55,16 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${uvms-pom.gis.deps.hibernate.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${uvms-pom.gis.deps.hibernate.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>${uvms-pom.gis.deps.hibernate.version}</version>
-			<scope>provided</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>org.jboss.logging</groupId>
@@ -83,12 +79,6 @@
 					<artifactId>hibernate-core</artifactId>
 				</exclusion>				
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-testing</artifactId>
-			<version>${uvms-pom.gis.deps.hibernate.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.postgis</groupId>
