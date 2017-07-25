@@ -71,7 +71,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <!-- ======================= -->
         <!-- Default docker settings -->        
         <!-- ======================= -->        
-        <docker.dev.version>3.2.0</docker.dev.version>
+        <docker.dev.version>3.3.0</docker.dev.version>
         <docker.dev.start.phase>none</docker.dev.start.phase>
         <docker.dev.stop.phase>none</docker.dev.stop.phase>
         <docker.dev.prestop.phase>none</docker.dev.prestop.phase>                
