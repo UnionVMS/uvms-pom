@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fish.focus.maven</groupId>
 		<artifactId>focus-pom</artifactId>
-		<version>1.5</version>
+		<version>1.9</version>
 		<relativePath />
 	</parent>
     
@@ -16,8 +16,9 @@
 
 	<properties>
 		<uvms-pom.gis.deps.hibernate.version>4.3.11.Final</uvms-pom.gis.deps.hibernate.version>
+		<uvms-pom.gis.deps.ehcache.version>2.10.4</uvms-pom.gis.deps.ehcache.version>
 		<uvms-pom.gis.deps.hibernate.spatial.version>4.3</uvms-pom.gis.deps.hibernate.spatial.version>
-		<uvms-pom.gis.deps.postgresql.version>42.1.1.jre7</uvms-pom.gis.deps.postgresql.version>
+		<uvms-pom.gis.deps.postgresql.version>42.1.4.jre7</uvms-pom.gis.deps.postgresql.version>
 		<uvms-pom.gis.deps.postgis.version>1.5.3</uvms-pom.gis.deps.postgis.version>
 		<uvms-pom.gis.deps.jts.version>1.13</uvms-pom.gis.deps.jts.version>
 		<uvms-pom.gis.deps.dozer.version>5.5.1</uvms-pom.gis.deps.dozer.version>
@@ -81,16 +82,19 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+		    <groupId>net.sf.ehcache</groupId>
+		    <artifactId>ehcache</artifactId>
+		    <version>${uvms-pom.gis.deps.ehcache.version}</version>
+		</dependency>		
+		<dependency>
 			<groupId>org.postgis</groupId>
 			<artifactId>postgis-jdbc</artifactId>
 			<version>${uvms-pom.gis.deps.postgis.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${uvms-pom.gis.deps.postgresql.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vividsolutions</groupId>
