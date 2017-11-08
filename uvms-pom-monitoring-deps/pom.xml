@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fish.focus.maven</groupId>
 		<artifactId>focus-pom</artifactId>
-		<version>1.12</version>
+		<version>1.13</version>
 		<relativePath />
 	</parent>
     
@@ -14,7 +14,7 @@
 	<description>Monitoring dependencies for UVMS pom </description>
 	<packaging>pom</packaging>
 	<properties>
-		<uvms-pom.monitoring.deps.version.javamelody>1.69.0</uvms-pom.monitoring.deps.version.javamelody>
+		<uvms-pom.monitoring.deps.version.javamelody>1.70.0</uvms-pom.monitoring.deps.version.javamelody>
 		<uvms-pom.monitoring.deps.version.itext>2.1.7</uvms-pom.monitoring.deps.version.itext>
 	</properties>
 	<dependencies>
