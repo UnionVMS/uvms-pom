@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fish.focus.maven</groupId>
 		<artifactId>focus-pom</artifactId>
-		<version>1.13</version>
+		<version>1.14</version>
 		<relativePath />
 	</parent>
     
@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<uvms-pom.monitoring.deps.version.javamelody>1.70.0</uvms-pom.monitoring.deps.version.javamelody>
-		<uvms-pom.monitoring.deps.version.itext>2.1.7</uvms-pom.monitoring.deps.version.itext>
+		<uvms-pom.monitoring.deps.version.openpdf>1.0.5</uvms-pom.monitoring.deps.version.openpdf>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -24,21 +24,17 @@
 			<version>${uvms-pom.monitoring.deps.version.javamelody}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.lowagie</groupId>
-			<artifactId>itext</artifactId>
-			<version>${uvms-pom.monitoring.deps.version.itext}</version>
+	        <groupId>com.github.librepdf</groupId>
+	        <artifactId>openpdf</artifactId>
+    		<version>${uvms-pom.monitoring.deps.version.openpdf}</version>
 			<exclusions>
 				<exclusion>
-					<artifactId>bcmail-jdk14</artifactId>
-					<groupId>bouncycastle</groupId>
+		            <groupId>org.bouncycastle</groupId>
+		            <artifactId>bcprov-jdk15on</artifactId>
 				</exclusion>
 				<exclusion>
-					<artifactId>bcprov-jdk14</artifactId>
-					<groupId>bouncycastle</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>bctsp-jdk14</artifactId>
-					<groupId>bouncycastle</groupId>
+		            <groupId>org.bouncycastle</groupId>
+		            <artifactId>bcpkix-jdk15on</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>

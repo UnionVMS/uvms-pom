@@ -15,7 +15,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     <parent>
         <groupId>fish.focus.maven</groupId>
         <artifactId>focus-pom</artifactId>
-        <version>1.13</version>
+        <version>1.14</version>
         <relativePath />
     </parent>
     
@@ -71,7 +71,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <!-- ======================= -->
         <!-- Default docker settings -->        
         <!-- ======================= -->        
-        <docker.dev.version>3.17.0</docker.dev.version>
+        <docker.dev.version>3.22.0</docker.dev.version>
         <docker.dev.start.phase>none</docker.dev.start.phase>
         <docker.dev.stop.phase>none</docker.dev.stop.phase>
         <docker.dev.prestop.phase>none</docker.dev.prestop.phase>                
@@ -166,7 +166,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.22.1</version>
+                        <version>0.23.0</version>
                         <executions>
                             <execution>
                                 <id>verifyallstopped</id>

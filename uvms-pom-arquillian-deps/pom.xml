@@ -4,7 +4,7 @@
     <parent>
         <groupId>fish.focus.maven</groupId>
         <artifactId>focus-pom</artifactId>
-        <version>1.13</version>
+        <version>1.14</version>
         <relativePath />
     </parent>
 
@@ -22,7 +22,7 @@
         <uvms-pom.arquillian.deps.org.wildfly>8.2.1.Final</uvms-pom.arquillian.deps.org.wildfly>
         <uvms-pom.arquillian.deps.shrinkwrap>2.2.6</uvms-pom.arquillian.deps.shrinkwrap>
         <uvms-pom.arquillian.deps.shrinkwrap.api>1.2.6</uvms-pom.arquillian.deps.shrinkwrap.api>
-        <uvms-pom.arquillian.deps.javassist>3.22.0-CR2</uvms-pom.arquillian.deps.javassist>
+        <uvms-pom.arquillian.deps.javassist>3.22.0-GA</uvms-pom.arquillian.deps.javassist>
         <uvms-pom.arquillian.deps.guava>20.0</uvms-pom.arquillian.deps.guava>
     </properties>
     <dependencyManagement>
