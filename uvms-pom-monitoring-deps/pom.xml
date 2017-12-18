@@ -27,16 +27,6 @@
 	        <groupId>com.github.librepdf</groupId>
 	        <artifactId>openpdf</artifactId>
     		<version>${uvms-pom.monitoring.deps.version.openpdf}</version>
-			<exclusions>
-				<exclusion>
-		            <groupId>org.bouncycastle</groupId>
-		            <artifactId>bcprov-jdk15on</artifactId>
-				</exclusion>
-				<exclusion>
-		            <groupId>org.bouncycastle</groupId>
-		            <artifactId>bcpkix-jdk15on</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 </project>
