@@ -20,7 +20,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
 	</parent>
 
     <artifactId>uvms-pom-aggregate</artifactId>
-    <version>1.16</version>
+    <version>1.17-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
         <project.scm.id>github</project.scm.id>
@@ -29,7 +29,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     </properties>
     <scm>
         <connection>${scm.connection}</connection>
-        <tag>uvms-pom-aggregate-1.16</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <modules>
