@@ -21,7 +21,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     
     <groupId>fish.focus.uvms.maven</groupId>
     <artifactId>uvms-pom</artifactId>
-    <version>1.17</version>
+    <version>1.18-SNAPSHOT</version>
     <packaging>pom</packaging>
       
     <!-- ================================================================ -->
@@ -30,7 +30,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     <url>${focus-pom.public.base.site.url}/${project.artifactId}</url>
     <scm>
         <connection>${scm.connection}</connection>
-        <tag>uvms-pom-aggregate-1.17</tag>
+        <tag>HEAD</tag>
     </scm>
     <!-- ================================================================ -->
     <!-- End Project specific settings                                    -->
@@ -55,8 +55,8 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <!-- Common project dependency manage version properties -->
         <!-- =================================================== -->
         <!--Dependecies-->
-        <uvms-pom.loggingDeps.version>1.17</uvms-pom.loggingDeps.version>
-        <uvms-pom.testDeps.version>1.17</uvms-pom.testDeps.version>
+        <uvms-pom.loggingDeps.version>1.18-SNAPSHOT</uvms-pom.loggingDeps.version>
+        <uvms-pom.testDeps.version>1.18-SNAPSHOT</uvms-pom.testDeps.version>
         
         <!--Depmanagement -->
         <uvms-pom.javaee.version>7.0</uvms-pom.javaee.version>
@@ -137,7 +137,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <dependency>
             <groupId>fish.focus.uvms.maven</groupId>
             <artifactId>uvms-pom-test-deps</artifactId>
-            <version>1.17</version>
+            <version>1.18-SNAPSHOT</version>
             <type>pom</type>
             <scope>test</scope>
         </dependency>
