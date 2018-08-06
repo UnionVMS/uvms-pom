@@ -272,7 +272,11 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                             <port>28443:8443</port>                                            
                                         </ports>
                                         <wait>
-                                            <log>WildFly 8.2.1.Final "Tweek" started in</log>
+                                            <http>
+                                               <url>http://localhost:28080</url>
+                                               <method>GET</method>
+                                               <status>200</status>
+                                            </http>
                                             <time>300000</time>
                                             <kill>5000</kill>
                                             <shutdown>5000</shutdown>
