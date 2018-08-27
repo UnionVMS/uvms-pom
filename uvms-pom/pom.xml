@@ -71,11 +71,16 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         
         <!-- ======================= -->
         <!-- Default docker settings -->        
-        <!-- ======================= -->        
+        <!-- ======================= -->
         <docker.dev.version>3.22.0</docker.dev.version>
         <docker.dev.start.phase>none</docker.dev.start.phase>
         <docker.dev.stop.phase>none</docker.dev.stop.phase>
-        <docker.dev.prestop.phase>none</docker.dev.prestop.phase>                
+        <docker.dev.prestop.phase>none</docker.dev.prestop.phase>
+        <docker.liquibase.phase>none</docker.liquibase.phase>
+        <docker.liquibase.changeLogFile>PATH_TO_CHANGELOGFILE</docker.liquibase.changeLogFile>
+        <docker.liquibase.db.url>jdbc:postgresql://localhost:15432/db71u</docker.liquibase.db.url>
+        <docker.liquibase.db.user>SET_ME</docker.liquibase.db.user>
+        <docker.liquibase.db.passwd>SET_ME</docker.liquibase.db.passwd>
     </properties>
      
     <dependencyManagement>
@@ -162,6 +167,18 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     <profiles>
         <profile>
             <id>docker</id>
+            <properties>
+                <driver.groupId>org.postgresql</driver.groupId>
+                <driver.artifactId>postgresql</driver.artifactId>
+                <driver.version>9.4-1201-jdbc41</driver.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>${driver.groupId}</groupId>
+                    <artifactId>${driver.artifactId}</artifactId>
+                    <version>${driver.version}</version>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -298,6 +315,26 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                             </images>
                         </configuration>
                     </plugin>
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <version>3.4.2</version>
+                        <configuration>
+                            <dropFirst>true</dropFirst>
+                            <changeLogFile>${maven.multiModuleProjectDirectory}/${docker.liquibase.changeLogFile}</changeLogFile>
+                            <url>${docker.liquibase.db.url}</url>
+                            <username>${docker.liquibase.db.user}</username>
+                            <password>${docker.liquibase.db.passwd}</password>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>${docker.liquibase.phase}</phase>                                                                  
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -315,6 +352,12 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                 <docker.dev.start.phase>none</docker.dev.start.phase>
                 <docker.dev.stop.phase>validate</docker.dev.stop.phase>
                 <docker.dev.prestop.phase>validate</docker.dev.prestop.phase>
+            </properties>
+        </profile>
+        <profile>
+            <id>liquibase</id>
+            <properties>
+                <docker.liquibase.phase>validate</docker.liquibase.phase>
             </properties>
         </profile>
     </profiles>
