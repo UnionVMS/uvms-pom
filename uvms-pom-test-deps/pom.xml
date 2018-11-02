@@ -16,7 +16,7 @@
 
 	<properties>
 		<uvms-pom.test.deps.junit.version>4.12</uvms-pom.test.deps.junit.version>
-		<uvms-pom.test.deps.mockito.version>2.22.0</uvms-pom.test.deps.mockito.version>
+		<uvms-pom.test.deps.mockito.version>1.10.19</uvms-pom.test.deps.mockito.version>
 		<uvms-pom.test.deps.easycoverage>2.3.1</uvms-pom.test.deps.easycoverage>
 		<uvms-pom.test.deps.contiperf>2.4.4</uvms-pom.test.deps.contiperf>
 		<uvms-pom.test.deps.powermock.version>1.6.6</uvms-pom.test.deps.powermock.version>		
@@ -30,7 +30,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
+			<artifactId>mockito-all</artifactId>
 			<version>${uvms-pom.test.deps.mockito.version}</version>
 		</dependency>
 		<dependency>
