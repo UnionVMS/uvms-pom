@@ -15,7 +15,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     <parent>
         <groupId>fish.focus.maven</groupId>
         <artifactId>focus-pom</artifactId>
-        <version>1.14</version>
+        <version>1.18</version>
         <relativePath />
     </parent>
     
@@ -42,7 +42,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <!-- ================= -->
         <!-- Global Properties -->
         <!-- ================= -->
-        <focus-pom.java.version>1.8</focus-pom.java.version>
         <context.root>unionvms/</context.root>
         
         <!-- Maven default properties -->
@@ -217,34 +216,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>activemq</alias>
-                                    <name>uvms/activemq:${docker.dev.version}</name>
-                                    <run>
-                                        <net>bridge</net>
-                                        <namingStrategy>none</namingStrategy>
-                                        <ports>
-                                            <port>18161:8161</port>
-                                            <port>61616:61616</port>
-                                        </ports>
-                                        <wait>
-                                            <tcp>
-                                                <host>127.0.0.1</host>
-                                                <ports>
-                                                    <port>8161</port>
-                                                </ports>
-                                            </tcp>
-                                            <kill>5000</kill>
-                                            <shutdown>5000</shutdown>
-                                            <time>15000</time>
-                                        </wait>
-                                        <log>
-                                            <enabled>true</enabled>
-                                            <color>red</color>
-                                        </log>
-                                        <hostname>activemq</hostname>
-                                    </run>
-                                </image>
-                                <image>
                                     <alias>postgres</alias>
                                     <name>uvms/postgres-release:${docker.dev.version}</name>
                                     <run>
@@ -259,12 +230,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                             <kill>5000</kill>
                                             <shutdown>5000</shutdown>
                                         </wait>
-                                        <dependsOn>
-                                            <container>activemq</container>
-                                        </dependsOn>
-                                        <links>
-                                            <link>activemq:activemq</link>
-                                        </links>
                                         <log>
                                             <enabled>true</enabled>
                                             <color>green</color>
@@ -280,7 +245,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                         <namingStrategy>none</namingStrategy>
                                         <links>
                                             <link>postgres:postgres</link>
-                                            <link>activemq:activemq</link>
                                         </links>
                                         <ports>
                                             <port>9990:9990</port>
@@ -303,7 +267,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                         </cmd>
                                         <dependsOn>
                                             <container>postgres</container>
-                                            <container>activemq</container>
                                         </dependsOn>
                                         <log>
                                             <enabled>true</enabled>

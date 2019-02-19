@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fish.focus.maven</groupId>
 		<artifactId>focus-pom</artifactId>
-		<version>1.14</version>
+		<version>1.18</version>
 		<relativePath />
 	</parent>
     
@@ -15,11 +15,10 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<uvms-pom.gis.deps.hibernate.version>4.3.11.Final</uvms-pom.gis.deps.hibernate.version>
-		<uvms-pom.gis.deps.ehcache.version>2.10.4</uvms-pom.gis.deps.ehcache.version>
-		<uvms-pom.gis.deps.hibernate.spatial.version>4.3</uvms-pom.gis.deps.hibernate.spatial.version>
-		<uvms-pom.gis.deps.postgresql.version>42.1.4.jre7</uvms-pom.gis.deps.postgresql.version>
-		<uvms-pom.gis.deps.postgis.version>1.5.3</uvms-pom.gis.deps.postgis.version>
+		<uvms-pom.gis.deps.hibernate.version>5.3.7.Final</uvms-pom.gis.deps.hibernate.version>
+		<uvms-pom.gis.deps.hibernate.spatial.version>5.3.7.Final</uvms-pom.gis.deps.hibernate.spatial.version>
+		<uvms-pom.gis.deps.postgresql.version>42.2.5</uvms-pom.gis.deps.postgresql.version>
+		<uvms-pom.gis.deps.postgis.version>2.3.0</uvms-pom.gis.deps.postgis.version>
 		<uvms-pom.gis.deps.jts.version>1.13</uvms-pom.gis.deps.jts.version>
 	</properties>
 
@@ -28,24 +27,6 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-spatial</artifactId>
 			<version>${uvms-pom.gis.deps.hibernate.spatial.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>postgresql</groupId>
-					<artifactId>postgresql</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.vividsolutions</groupId>
-					<artifactId>jts</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.postgis</groupId>
-					<artifactId>postgis-jdbc</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-core</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -58,31 +39,7 @@
 			<version>${uvms-pom.gis.deps.hibernate.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-ehcache</artifactId>
-			<version>${uvms-pom.gis.deps.hibernate.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.jboss.logging</groupId>
-					<artifactId>jboss-logging-annotations</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.jboss.logging</groupId>
-					<artifactId>jboss-logging</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-core</artifactId>
-				</exclusion>				
-			</exclusions>
-		</dependency>
-		<dependency>
-		    <groupId>net.sf.ehcache</groupId>
-		    <artifactId>ehcache</artifactId>
-		    <version>${uvms-pom.gis.deps.ehcache.version}</version>
-		</dependency>		
-		<dependency>
-			<groupId>org.postgis</groupId>
+			<groupId>net.postgis</groupId>
 			<artifactId>postgis-jdbc</artifactId>
 			<version>${uvms-pom.gis.deps.postgis.version}</version>
 		</dependency>
