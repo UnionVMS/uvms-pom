@@ -15,7 +15,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     <parent>
         <groupId>fish.focus.maven</groupId>
         <artifactId>focus-pom</artifactId>
-        <version>1.18</version>
+        <version>1.19</version>
         <relativePath />
     </parent>
     
@@ -250,7 +250,9 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                             <port>9990:9990</port>
                                             <port>28787:8787</port>
                                             <port>28080:8080</port>
-                                            <port>28443:8443</port>                                            
+                                            <port>28443:8443</port>
+                                            <port>5445:5445</port>
+                                            <port>5455:5455</port>
                                         </ports>
                                         <wait>
                                             <http>
