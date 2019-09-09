@@ -15,7 +15,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     <parent>
         <groupId>fish.focus.maven</groupId>
         <artifactId>focus-pom</artifactId>
-        <version>1.19</version>
+        <version>1.21</version>
         <relativePath />
     </parent>
     
@@ -58,11 +58,10 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <uvms-pom.testDeps.version>1.25-SNAPSHOT</uvms-pom.testDeps.version>
         
         <!--Depmanagement -->
-        <uvms-pom.javaee.version>7.0</uvms-pom.javaee.version>
+        <uvms-pom.javaee.version>8.0</uvms-pom.javaee.version>
         <uvms-pom.commons.collections>3.2.2</uvms-pom.commons.collections>
         <uvms-pom.commons.lang.version>2.6</uvms-pom.commons.lang.version>
-        <uvms-pom.commons.lang3.version>3.7</uvms-pom.commons.lang3.version>
-        <uvms-pom.joda-time.version>2.9.9</uvms-pom.joda-time.version>
+        <uvms-pom.commons.lang3.version>3.9</uvms-pom.commons.lang3.version>
         
         <!-- ======= -->
         <!-- Plugins -->        
@@ -71,7 +70,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <!-- ======================= -->
         <!-- Default docker settings -->        
         <!-- ======================= -->
-        <docker.dev.version>3.22.0</docker.dev.version>
+        <docker.dev.version>3.39.6.w17</docker.dev.version>
         <docker.dev.start.phase>none</docker.dev.start.phase>
         <docker.dev.stop.phase>none</docker.dev.stop.phase>
         <docker.dev.prestop.phase>none</docker.dev.prestop.phase>
@@ -120,12 +119,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${uvms-pom.commons.lang.version}</version>
-            </dependency>
-            
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>${uvms-pom.joda-time.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -183,7 +176,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.23.0</version>
+                        <version>0.31.0</version>
                         <executions>
                             <execution>
                                 <id>verifyallstopped</id>
