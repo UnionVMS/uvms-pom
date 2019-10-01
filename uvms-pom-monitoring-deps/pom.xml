@@ -10,7 +10,7 @@
     
 	<groupId>fish.focus.uvms.maven</groupId>
 	<artifactId>uvms-pom-monitoring-deps</artifactId>
-	<version>2.0</version>
+	<version>2.1-SNAPSHOT</version>
 	<description>Monitoring dependencies for UVMS pom </description>
 	<packaging>pom</packaging>
 	<properties>
@@ -29,8 +29,4 @@
     		<version>${uvms-pom.monitoring.deps.version.openpdf}</version>
 		</dependency>
 	</dependencies>
-
-  <scm>
-    <tag>uvms-pom-aggregate-2.0</tag>
-  </scm>
 </project>
