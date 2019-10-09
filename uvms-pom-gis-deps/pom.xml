@@ -15,11 +15,11 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<uvms-pom.gis.deps.hibernate.version>5.3.10.Final</uvms-pom.gis.deps.hibernate.version>
-		<uvms-pom.gis.deps.hibernate.spatial.version>5.3.10.Final</uvms-pom.gis.deps.hibernate.spatial.version>
-		<uvms-pom.gis.deps.postgresql.version>42.2.6</uvms-pom.gis.deps.postgresql.version>
+		<uvms-pom.gis.deps.hibernate.version>5.4.1.Final</uvms-pom.gis.deps.hibernate.version>
+		<uvms-pom.gis.deps.hibernate.spatial.version>5.4.1.Final</uvms-pom.gis.deps.hibernate.spatial.version>
+		<uvms-pom.gis.deps.postgresql.version>42.2.8</uvms-pom.gis.deps.postgresql.version>
 		<uvms-pom.gis.deps.postgis.version>2.3.0</uvms-pom.gis.deps.postgis.version>
-		<uvms-pom.gis.deps.jts.version>1.13</uvms-pom.gis.deps.jts.version>
+		<uvms-pom.gis.deps.jts.version>1.16.1</uvms-pom.gis.deps.jts.version>
 	</properties>
 
 	<dependencies>
@@ -54,8 +54,8 @@
 			<version>${uvms-pom.gis.deps.postgresql.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.vividsolutions</groupId>
-			<artifactId>jts</artifactId>
+			<groupId>org.locationtech.jts</groupId>
+			<artifactId>jts-core</artifactId>
 			<version>${uvms-pom.gis.deps.jts.version}</version>
 		</dependency>
 	</dependencies>
