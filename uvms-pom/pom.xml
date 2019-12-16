@@ -258,7 +258,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                             <shutdown>5000</shutdown>
                                         </wait>
                                         <cmd>
-                                            <shell>/opt/jboss/wildfly/bin/standalone.sh -c standalone-uvms.xml -b 0.0.0.0 -bmanagement 0.0.0.0 --debug</shell>
+                                            <shell>/opt/jboss/wildfly/bin/standalone.sh -c standalone-uvms.xml -b 0.0.0.0 -bmanagement 0.0.0.0 --debug *:8787</shell>
                                         </cmd>
                                         <dependsOn>
                                             <container>postgres</container>
