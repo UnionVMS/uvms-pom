@@ -36,19 +36,9 @@
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.ws</groupId>
-			<artifactId>jaxws-ri</artifactId>
+			<artifactId>jaxws-rt</artifactId>
 			<version>${javax.xml.bind.version}</version>
 			<type>pom</type>
-			<exclusions>
-				<exclusion>
-					<groupId>com.sun.xml.ws</groupId>
-					<artifactId>release-documentation</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.xml.ws</groupId>
-					<artifactId>samples</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.activation</groupId>
