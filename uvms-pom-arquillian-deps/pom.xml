@@ -16,11 +16,11 @@
 
     <properties>
         <focus-pom.java.version>1.9</focus-pom.java.version>
-        <uvms-pom.arquillian.deps.arquillian>1.4.1.Final</uvms-pom.arquillian.deps.arquillian>
+        <uvms-pom.arquillian.deps.arquillian>1.5.0.Final</uvms-pom.arquillian.deps.arquillian>
         <uvms-pom.arquillian.deps.arquillian.suite.extension>1.2.0</uvms-pom.arquillian.deps.arquillian.suite.extension>
         <uvms-pom.arquillian.deps.arquillian_jacoco>1.0.0.Alpha10</uvms-pom.arquillian.deps.arquillian_jacoco>
         <uvms-pom.arquillian.deps.jacoco>0.8.3</uvms-pom.arquillian.deps.jacoco>
-        <uvms-pom.arquillian.deps.org.wildfly>2.1.1.Final</uvms-pom.arquillian.deps.org.wildfly>
+        <uvms-pom.arquillian.deps.org.wildfly>2.2.0.Final</uvms-pom.arquillian.deps.org.wildfly>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -118,10 +118,6 @@
                 <exclusion>
                     <groupId>javax.enterprise</groupId>
                     <artifactId>cdi-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
