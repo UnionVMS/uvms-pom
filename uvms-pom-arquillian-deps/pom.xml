@@ -4,7 +4,7 @@
     <parent>
         <groupId>fish.focus.maven</groupId>
         <artifactId>focus-pom</artifactId>
-        <version>1.23</version>
+        <version>2.1</version>
         <relativePath />
     </parent>
 
@@ -15,7 +15,6 @@
     <packaging>pom</packaging>
 
     <properties>
-        <focus-pom.java.version>1.9</focus-pom.java.version>
         <uvms-pom.arquillian.deps.arquillian>1.5.0.Final</uvms-pom.arquillian.deps.arquillian>
         <uvms-pom.arquillian.deps.arquillian.suite.extension>1.2.0</uvms-pom.arquillian.deps.arquillian.suite.extension>
         <uvms-pom.arquillian.deps.arquillian_jacoco>1.0.0.Alpha10</uvms-pom.arquillian.deps.arquillian_jacoco>
