@@ -176,7 +176,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.31.0</version>
+                        <version>0.33.0</version>
                         <executions>
                             <execution>
                                 <id>verifyallstopped</id>
@@ -217,12 +217,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                         <ports>
                                             <port>15432:5432</port>
                                         </ports>
-                                        <wait>
-                                            <log>All uvms databases created</log>
-                                            <time>240000</time>
-                                            <kill>5000</kill>
-                                            <shutdown>5000</shutdown>
-                                        </wait>
                                         <log>
                                             <enabled>true</enabled>
                                             <color>green</color>
@@ -258,7 +252,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                                             <shutdown>5000</shutdown>
                                         </wait>
                                         <cmd>
-                                            <shell>/opt/jboss/wildfly/bin/standalone.sh -c standalone-uvms.xml -b 0.0.0.0 -bmanagement 0.0.0.0 --debug *:8787</shell>
+                                            <shell>/opt/jboss/start.sh /opt/jboss/wildfly/bin/standalone.sh -c standalone-full.xml -b 0.0.0.0 -bmanagement 0.0.0.0 --debug *:8787</shell>
                                         </cmd>
                                         <dependsOn>
                                             <container>postgres</container>
