@@ -70,7 +70,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <!-- ======================= -->
         <!-- Default docker settings -->        
         <!-- ======================= -->
-        <docker.dev.version>3.39.6.w17</docker.dev.version>
+        <docker.dev.version>3.43.1</docker.dev.version>
         <docker.dev.start.phase>none</docker.dev.start.phase>
         <docker.dev.stop.phase>none</docker.dev.stop.phase>
         <docker.dev.prestop.phase>none</docker.dev.prestop.phase>
@@ -162,7 +162,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
             <properties>
                 <driver.groupId>org.postgresql</driver.groupId>
                 <driver.artifactId>postgresql</driver.artifactId>
-                <driver.version>9.4-1201-jdbc41</driver.version>
+                <driver.version>42.2.12</driver.version>
             </properties>
             <dependencies>
                 <dependency>
@@ -270,7 +270,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                     <plugin>
                         <groupId>org.liquibase</groupId>
                         <artifactId>liquibase-maven-plugin</artifactId>
-                        <version>3.5.3</version>
+                        <version>3.7.0</version>
                         <configuration>
                             <dropFirst>true</dropFirst>
                             <changeLogFile>${maven.multiModuleProjectDirectory}/${docker.liquibase.changeLogFile}</changeLogFile>
