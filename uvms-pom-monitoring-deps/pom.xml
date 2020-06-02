@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<uvms-pom.monitoring.deps.version.javamelody>1.81.0-UVMS</uvms-pom.monitoring.deps.version.javamelody>
-		<uvms-pom.monitoring.deps.version.openpdf>1.0.5</uvms-pom.monitoring.deps.version.openpdf>
+		<uvms-pom.monitoring.deps.version.openpdf>1.1.0</uvms-pom.monitoring.deps.version.openpdf>
 	</properties>
 	<dependencies>
 		<dependency>
