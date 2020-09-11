@@ -14,13 +14,19 @@
 	<description>Monitoring dependencies for UVMS pom </description>
 	<packaging>pom</packaging>
 	<properties>
-		<uvms-pom.monitoring.deps.version.javamelody>1.81.0-UVMS</uvms-pom.monitoring.deps.version.javamelody>
+		<uvms-pom.monitoring.deps.version.javamelody>1.85.0-UVMS</uvms-pom.monitoring.deps.version.javamelody>
+		<uvms-pom.monitoring.deps.version.jrobin>1.5.9</uvms-pom.monitoring.deps.version.jrobin>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>net.bull.javamelody</groupId>
 			<artifactId>javamelody-core</artifactId>
 			<version>${uvms-pom.monitoring.deps.version.javamelody}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jrobin</groupId>
+			<artifactId>jrobin</artifactId>
+			<version>${uvms-pom.monitoring.deps.version.jrobin}</version>
 		</dependency>
 	</dependencies>
 </project>
