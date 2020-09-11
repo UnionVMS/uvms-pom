@@ -54,12 +54,12 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
         <!-- Common project dependency manage version properties -->
         <!-- =================================================== -->
         <!--Dependecies-->
-        <uvms-pom.loggingDeps.version>3.4-SNAPSHOT</uvms-pom.loggingDeps.version>
         <uvms-pom.testDeps.version>3.4-SNAPSHOT</uvms-pom.testDeps.version>
         
         <!--Depmanagement -->
         <uvms-pom.jakartaee.version>8.0.0</uvms-pom.jakartaee.version>
         <uvms-pom.microprofile.version>3.3</uvms-pom.microprofile.version>
+        <uvms-pom.slf4j.version>1.7.30</uvms-pom.slf4j.version>
         <uvms-pom.commons.collections>3.2.2</uvms-pom.commons.collections>
         <uvms-pom.commons.lang.version>2.6</uvms-pom.commons.lang.version>
         <uvms-pom.commons.lang3.version>3.9</uvms-pom.commons.lang3.version>
@@ -84,13 +84,6 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
      
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>fish.focus.uvms.maven</groupId>
-                <artifactId>uvms-pom-logging-deps</artifactId>
-                <version>${uvms-pom.loggingDeps.version}</version>
-                <type>pom</type>
-            </dependency>
-   
             <dependency>
                 <groupId>fish.focus.uvms.maven</groupId>
                 <artifactId>uvms-pom-test-deps</artifactId>
@@ -134,11 +127,12 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
     <dependencies>
         <!-- Include default logging dependencies -->
         <dependency>
-            <groupId>fish.focus.uvms.maven</groupId>
-            <artifactId>uvms-pom-logging-deps</artifactId>
-            <type>pom</type>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${uvms-pom.slf4j.version}</version>
+            <scope>provided</scope>
         </dependency>
-        <!-- Include default test dependencies (scope aplies to all deps in the dependecy..)-->
+        <!-- Include default test dependencies (scope applies to all deps in the dependecy..)-->
         <dependency>
             <groupId>fish.focus.uvms.maven</groupId>
             <artifactId>uvms-pom-test-deps</artifactId>
