@@ -15,35 +15,19 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<javax.xml.bind.version>2.3.0</javax.xml.bind.version>
+		<jakarta.xml.ws.version>2.3.3</jakarta.xml.ws.version>
+		<jakarta.activation.version>1.2.2</jakarta.activation.version>
 	</properties>
 	<dependencies>
-		<!-- Java 11 has removed theses from the standard package   -->
 		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>${javax.xml.bind.version}</version>
+			<groupId>jakarta.xml.ws</groupId>
+			<artifactId>jakarta.xml.ws-api</artifactId>
+			<version>${jakarta.xml.ws.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-core</artifactId>
-			<version>${javax.xml.bind.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>${javax.xml.bind.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.ws</groupId>
-			<artifactId>jaxws-rt</artifactId>
-			<version>${javax.xml.bind.version}</version>
-			<type>pom</type>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.activation</groupId>
-			<artifactId>javax.activation</artifactId>
-			<version>1.2.0</version>
+		    <groupId>jakarta.activation</groupId>
+		    <artifactId>jakarta.activation-api</artifactId>
+		    <version>${jakarta.activation.version}</version>
 		</dependency>
 	</dependencies>
 </project>
