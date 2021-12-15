@@ -274,7 +274,7 @@ License along with the IFDM Suite. If not, see <http://www.gnu.org/licenses />. 
                         <artifactId>liquibase-maven-plugin</artifactId>
                         <version>4.6.2</version>
                         <configuration>
-                            <changeLogFile>${maven.multiModuleProjectDirectory}/${docker.liquibase.changeLogFile}</changeLogFile>
+                            <changeLogFile>${docker.liquibase.changeLogFile}</changeLogFile>
                             <url>${docker.liquibase.db.url}</url>
                             <username>${docker.liquibase.db.user}</username>
                             <password>${docker.liquibase.db.passwd}</password>
