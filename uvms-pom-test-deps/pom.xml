@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<uvms-pom.test.deps.junit.version>4.12</uvms-pom.test.deps.junit.version>
+		<uvms-pom.test.deps.junit.version>4.13.1</uvms-pom.test.deps.junit.version>
 		<uvms-pom.test.deps.mockito.version>3.1.0</uvms-pom.test.deps.mockito.version>
 		<uvms-pom.test.deps.easycoverage>2.3.1</uvms-pom.test.deps.easycoverage>
 		<uvms-pom.test.deps.contiperf>2.4.4</uvms-pom.test.deps.contiperf>
