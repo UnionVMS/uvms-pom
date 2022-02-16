@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<uvms-pom.gis.deps.hibernate.version>5.4.1.Final</uvms-pom.gis.deps.hibernate.version>
+		<uvms-pom.gis.deps.hibernate.version>5.4.24.Final</uvms-pom.gis.deps.hibernate.version>
 		<uvms-pom.gis.deps.hibernate.spatial.version>5.4.1.Final</uvms-pom.gis.deps.hibernate.spatial.version>
 		<uvms-pom.gis.deps.postgresql.version>42.2.14</uvms-pom.gis.deps.postgresql.version>
 		<uvms-pom.gis.deps.postgis.version>2.5.0</uvms-pom.gis.deps.postgis.version>
